@@ -9,13 +9,12 @@
         <title>Working Google Maps</title>
     </head>
     <body>
+        <p id="geolocation">Finding geolocation...</p><br>
         <div id="map"></div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js"> </script>
     </body>
 </html>
 <script type="text/javascript" src="cordova.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js"> </script>
 <script type="text/javascript">
 
     // Wait for device API libraries to load
@@ -24,17 +23,22 @@
 
     // device APIs are available
     //
-    function onDeviceReady() {
-        var options = {frequency: 3000, enableHighAccuracy: true};
+    function onDeviceReady()
+    {
+        var options = { frequency: 3000, enableHighAccuracy: true };
         navigator.geolocation.watchPosition(onSuccess, onError, options);
     }
 
     // onSuccess Geolocation
     //
-    function onSuccess(position) {
+    function onSuccess(position)
+    {
         var longitude = position.coords.longitude;
         var latitude = position.coords.latitude;
         var latLong = new google.maps.LatLng(latitude, longitude);
+
+        var element = document.getElementById('geolocation');
+        element.innerHTML = 'Latitude: ' + latitude + ' ' + 'Longitude: ' + longitude + '<br />';
 
         var mapOptions = {
             center: latLong,
@@ -43,19 +47,19 @@
         };
 
         var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-	
+
         var marker = new google.maps.Marker({
-              position: latLong,
-              map: map,
-              title: 'my location'
-          });
+            position: latLong,
+            map: map,
+            title: 'my location'
+        });
     }
 
     // onError Callback receives a PositionError object
     //
-    function onError(error) {
-        alert('code: '    + error.code    + '\n' +
-                'message: ' + error.message + '\n');
+    function onError(error)
+    {
+        alert('code: ' + error.code + '\n' + 'message: ' + error.message + '\n');
     }
 
 </script>
