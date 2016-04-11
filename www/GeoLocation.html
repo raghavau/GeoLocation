@@ -13,9 +13,8 @@
     // device APIs are available
     //
     function onDeviceReady() {
-        debugger;
-        navigator.geolocation.getCurrentPosition(onSuccess, onError);
-    }
+            navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 30000 });
+        }
 
     // onSuccess Geolocation
     //
