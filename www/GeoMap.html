@@ -20,7 +20,7 @@
             function onDeviceReady()
             {
                 var options = { frequency: 3000, enableHighAccuracy: true };
-                navigator.geolocation.watchPosition(onSuccess, onError, options);
+                navigator.geolocation.watchPosition(onSuccess, onError); //, options
             }
 
             // onSuccess Geolocation
@@ -30,23 +30,23 @@
                 var longitude = position.coords.longitude;
                 var latitude = position.coords.latitude;
                 var latLong = new google.maps.LatLng(latitude, longitude);
-                alert('Step-1');
+
                 var element = document.getElementById('geolocation');
                 element.innerHTML = 'Latitude: ' + latitude + ' ' + 'Longitude: ' + longitude + '<br />';
-                alert('Step-2');
+
                 var mapOptions = {
                     center: latLong,
-                    zoom: 13,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                    zoom: 13
                 };
-                alert('Step-3');
-                var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-                alert('Step-4');
+
+                var map = new google.maps.Map(document.getElementById("sample"), mapOptions);
+
                 var marker = new google.maps.Marker({
                     position: latLong,
                     map: map,
                     title: 'my location'
                 });
+                alert('Success');
             }
 
             // onError Callback receives a PositionError object
@@ -60,6 +60,6 @@
     </head>
 <body>
         <p id="geolocation">Finding geolocation...</p><br>
-        <div id="map"></div>
+        <div id="sample" style = "width:fill-available; height:fill-available;"></div>
     </body>
 </html>
