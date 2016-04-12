@@ -107,7 +107,7 @@
             {
                 alert('code: ' + error.code + '\n' + 'message: ' + error.message + '\n');
             }
-            var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { frequency: 9000, enableHighAccuracy: true });
+            var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { frequency: 3000, enableHighAccuracy: true });
             google.maps.event.addDomListener(window, 'load', onSuccess);
         </script>
     </head>
