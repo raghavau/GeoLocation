@@ -75,7 +75,11 @@
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
         <script type="text/javascript">
-            var latlong=[];
+            var latlong=[
+                new google.maps.LatLng(14.264088, 80.113212),
+                new google.maps.LatLng(14.264062, 80.113058),
+                new google.maps.LatLng(14.264035, 80.113026)
+            ];
             function onSuccess(position)
             {
                 var element = document.getElementById('geolocation');
@@ -94,7 +98,8 @@
                     map: map
                 });
                 latlong.push('new google.maps.LatLng(' + position.coords.latitude + ',' + position.coords.longitude + ')');
-                /*new google.maps.LatLng(14.2597923, 80.1143801),
+                /*[
+                new google.maps.LatLng(14.2597923, 80.1143801),
                 new google.maps.LatLng(14.261498, 80.114943),
                 new google.maps.LatLng(14.262283, 80.113472),
                 new google.maps.LatLng(14.262501, 80.112908),
