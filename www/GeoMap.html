@@ -75,13 +75,15 @@
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
         <script type="text/javascript">
-            function onSuccess(position) {
+            var latlong = '[';
+            function onSuccess(position)
+            {
                 var element = document.getElementById('geolocation');
-                element.innerHTML = 'Latitude: ' + position.coords.latitude + ' Longitude: ' + position.coords.longitude + '<br />' 
-                                    + '<hr />' + element.innerHTML;
-                var lat=position.coords.latitude;
-                var lang=position.coords.longitude;
-                var myLatlng = new google.maps.LatLng(lat,lang);
+                /*element.innerHTML = 'Latitude: ' + position.coords.latitude + ' Longitude: ' + position.coords.longitude + '<br />'
+                                    + '<hr />' + element.innerHTML;*/
+                var lat = position.coords.latitude;
+                var lang = position.coords.longitude;
+                var myLatlng = new google.maps.LatLng(lat, lang);
                 var mapOptions = {
                     zoom: 15,
                     center: myLatlng
@@ -91,32 +93,35 @@
                     position: myLatlng,
                     map: map
                 });
-                var latlong = [
-                       new google.maps.LatLng(14.2599704, 80.113961),
-                       new google.maps.LatLng(14.2597923, 80.1143801),
-                       new google.maps.LatLng(14.261498, 80.114943),
-                       new google.maps.LatLng(14.262283, 80.113472),
-                       new google.maps.LatLng(14.262501, 80.112908),
-                       new google.maps.LatLng(14.262557, 80.112824),
-                       new google.maps.LatLng(14.262698, 80.112738),
-                       new google.maps.LatLng(14.262835, 80.112735),
-                       new google.maps.LatLng(14.264088, 80.113212),
-                       new google.maps.LatLng(14.264062, 80.113058),
-                       new google.maps.LatLng(14.264035, 80.113026)
-                    ];
-                var tourplan1 = new google.maps.Polyline({
+                latlong = latlong + 'new google.maps.LatLng(' + position.coords.latitude + ',' + position.coords.longitude + '),';
+                /*new google.maps.LatLng(14.2597923, 80.1143801),
+                new google.maps.LatLng(14.261498, 80.114943),
+                new google.maps.LatLng(14.262283, 80.113472),
+                new google.maps.LatLng(14.262501, 80.112908),
+                new google.maps.LatLng(14.262557, 80.112824),
+                new google.maps.LatLng(14.262698, 80.112738),
+                new google.maps.LatLng(14.262835, 80.112735),
+                new google.maps.LatLng(14.264088, 80.113212),
+                new google.maps.LatLng(14.264062, 80.113058),
+                new google.maps.LatLng(14.264035, 80.113026)
+                ];*/
+                latlong.slice(0, -1);
+                latlong = latlong + ']';
+                element.innerHTML = latlong;
+                /*var tourplan1 = new google.maps.Polyline({
                     path: latlong,
 
                     strokeColor: "#0000FF",
                     strokeOpacity: 0.6,
                     strokeWeight: 2
                 });
-                tourplan1.setMap(map);
+                tourplan1.setMap(map);*/
             }
-            function onError(error) {
+            function onError(error)
+            {
                 alert('code: ' + error.code + '\n' + 'message: ' + error.message + '\n');
             }
-            var watchID = navigator.geolocation.watchPosition(onSuccess, onError, {frequency: 3000});
+            var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { frequency: 3000 });
             google.maps.event.addDomListener(window, 'load', onSuccess);
         </script>
     </head>
