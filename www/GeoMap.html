@@ -91,9 +91,7 @@
                     position: myLatlng,
                     map: map
                 });
-
-                var tourplan1 = new google.maps.Polyline({
-                    path: [
+                var latlong = [
                        new google.maps.LatLng(14.2599704, 80.113961),
                        new google.maps.LatLng(14.2597923, 80.1143801),
                        new google.maps.LatLng(14.2592744, 80.1142199),
@@ -113,7 +111,9 @@
                        new google.maps.LatLng(14.2590827, 80.1130404),
                        new google.maps.LatLng(14.2589501, 80.1129653),
                        new google.maps.LatLng(14.2555381, 80.1117536)
-                    ],
+                    ];
+                var tourplan1 = new google.maps.Polyline({
+                    path: latlong,
 
                     strokeColor: "#0000FF",
                     strokeOpacity: 0.6,
