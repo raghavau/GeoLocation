@@ -97,7 +97,7 @@
                     position: myLatlng,
                     map: map
                 });
-                latlong.push('new google.maps.LatLng(' + position.coords.latitude + ',' + position.coords.longitude + ')');
+                latlong.push(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
                 /*[
                 new google.maps.LatLng(14.2597923, 80.1143801),
                 new google.maps.LatLng(14.261498, 80.114943),
