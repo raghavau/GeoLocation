@@ -79,7 +79,8 @@
             function onSuccess(position)
             {
                 var element = document.getElementById('geolocation');
-                element.innerHTML = 'Latitude: ' + position.coords.latitude + ' Longitude: ' + position.coords.longitude + '<br />' + '<hr />' + element.innerHTML;
+                element.innerHTML = 'Latitude: ' + position.coords.latitude + ' Longitude: ' + position.coords.longitude + '<br />' 
+                                    + '<hr />' + element.innerHTML;
                 var lat = position.coords.latitude;
                 var lang = position.coords.longitude;
                 var myLatlng = new google.maps.LatLng(lat, lang);
@@ -88,7 +89,7 @@
                     center: myLatlng,
                     mapTypeId: google.maps.MapTypeId.ROADMAP,
                     panControl: false,
-                    zoomControl: false,
+                    zoomControl: true,
                     scaleControl: false,
                     mapTypeControl: false,
                     streetViewControl: false,
