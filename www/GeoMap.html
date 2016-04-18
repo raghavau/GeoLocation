@@ -78,7 +78,7 @@
             var latlong = [];
             function onSuccess(position) {
                 var element = document.getElementById('geolocation');
-                element.innerHTML = 'Latitude: ' + position.coords.latitude + ' Longitude: ' + position.coords.longitude + '<br />'
+                element.innerHTML = 'Latitude: ' + position.coords.latitude + ' Longitude: ' + position.coords.longitude + ' '+ new Date() +'<br />'
                                             + '<hr />' + element.innerHTML;
                 var lat = position.coords.latitude;
                 var lang = position.coords.longitude;
