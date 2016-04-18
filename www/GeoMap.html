@@ -114,7 +114,7 @@
                 alert('code: ' + error.code + '\n' + 'message: ' + error.message + '\n');
             }
             //var watchID = navigator.geolocation.getCurrentPosition(onSuccess, onError, { timeout: 10000, enableHighAccuracy: true });
-            var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { maximumAge: 10000, timeout: 12000, enableHighAccuracy: true });
+            var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { maximumAge: 10000, timeout: 8000, enableHighAccuracy: true });
 
             function clearWatch() {
                 if (watchID != null) {
