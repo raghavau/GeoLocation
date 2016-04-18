@@ -80,7 +80,7 @@
                 var element = document.getElementById('geolocation');
                 element.innerHTML = 'Latitude: ' + position.coords.latitude + ' Longitude: ' + position.coords.longitude + ' ' + new Date() +'<br />'
                                             + '<hr />' + element.innerHTML;
-                /*var lat = position.coords.latitude;
+                var lat = position.coords.latitude;
                 var lang = position.coords.longitude;
                 var myLatlng = new google.maps.LatLng(lat, lang);
                 var mapOptions = {
@@ -108,13 +108,13 @@
                     strokeOpacity: 0.6,
                     strokeWeight: 2
                 });
-                tourplan1.setMap(map);*/
+                tourplan1.setMap(map);
             }
             function onError(error) {
                 alert('code: ' + error.code + '\n' + 'message: ' + error.message + '\n');
             }
             //var watchID = navigator.geolocation.getCurrentPosition(onSuccess, onError, { timeout: 10000, enableHighAccuracy: true });
-            var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { maximumAge: 8000, timeout: 12000, enableHighAccuracy: true });
+            var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { maximumAge: 10000, timeout: 12000, enableHighAccuracy: true });
 
             function clearWatch() {
                 if (watchID != null) {
