@@ -75,11 +75,10 @@
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
         <script type="text/javascript">
-            var latlong=[];
-            function onSuccess(position)
-            {
+            var latlong = [];
+            function onSuccess(position) {
                 var element = document.getElementById('geolocation');
-                element.innerHTML = 'Latitude: ' + position.coords.latitude + ' Longitude: ' + position.coords.longitude + '<br />' 
+                element.innerHTML = 'Latitude: ' + position.coords.latitude + ' Longitude: ' + position.coords.longitude + '<br />'
                                     + '<hr />' + element.innerHTML;
                 var lat = position.coords.latitude;
                 var lang = position.coords.longitude;
@@ -101,7 +100,7 @@
                     position: myLatlng,
                     map: map
                 });
-                
+
                 latlong.push(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
                 var tourplan1 = new google.maps.Polyline({
                     path: latlong,
@@ -111,12 +110,12 @@
                 });
                 tourplan1.setMap(map);
             }
-            function onError(error)
-            {
+            function onError(error) {
                 alert('code: ' + error.code + '\n' + 'message: ' + error.message + '\n');
             }
-            var watchID = navigator.geolocation.getCurrentPosition(onSuccess, onError, { timeout : 10000, enableHighAccuracy: true });
+            var watchID = navigator.geolocation.getCurrentPosition(onSuccess, onError, { timeout: 10000, enableHighAccuracy: true });
             google.maps.event.addDomListener(window, 'load', onSuccess);
+            window.setInterval(watchID, 10000);
         </script>
     </head>
     <body>
