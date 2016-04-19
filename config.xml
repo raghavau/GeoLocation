@@ -76,8 +76,8 @@
     <allow-intent href="itms:*"/>
     <allow-intent href="itms-apps:*"/>
   </platform>
-  <plugin name="cordova-plugin-app-version">
+  <!--<plugin name="cordova-plugin-app-version">
     <param name="id" value="plugin.google.maps" />
     <variable name="API_KEY_FOR_ANDROID" value="AIzaSyBVlozuwA3NMg38ObNqcR8EAer8rHILYSk" />
-  </plugin>
+  </plugin>-->
 </widget>
