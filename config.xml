@@ -78,6 +78,6 @@
     <allow-intent href="itms-apps:*"/>
   </platform>
     <vs:plugin name="plugin.google.maps">
-        <param name="API_KEY_FOR_ANDROID" value="AIzaSyB733e-cNyYies4AH9cHsUVmnV3H6aq52k" />
+        <param name="API_KEY_FOR_ANDROID" value="AIzaSyBVlozuwA3NMg38ObNqcR8EAer8rHILYSk" />
     </vs:plugin>
 </widget>
