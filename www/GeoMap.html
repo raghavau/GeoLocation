@@ -113,10 +113,10 @@
             function onError(error) {
                 alert('code: ' + error.code + '\n' + 'message: ' + error.message + '\n');
             }
-            //var watchID = navigator.geolocation.getCurrentPosition(onSuccess, onError, { timeout: 10000, enableHighAccuracy: true });
+            var watchID = navigator.geolocation.getCurrentPosition(onSuccess, onError, { timeout: 3000, enableHighAccuracy: true });
             //var options = { frequency: 3000, maximumAge: 10000, timeout: 10000, enableHighAccuracy: true };
             var options = { frequency: 5000, timeout: 10000, enableHighAccuracy: true };
-            var watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
+            //var watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
 
             function clearWatch() {
                 if (watchID != null) {
