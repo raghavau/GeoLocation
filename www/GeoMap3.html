@@ -26,10 +26,16 @@
                     var minZoomLevel = 12;
                     var lat = position.coords.latitude;
                     var lang = position.coords.longitude;
+                    
                     var map = new google.maps.Map(document.getElementById('map_canvas'), {
                         zoom: minZoomLevel,
                         center: new google.maps.LatLng(lat, lang),
                         mapTypeId: google.maps.MapTypeId.ROADMAP
+                    });
+
+                    var marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(lat, lang),
+                        map: map
                     });
                 }, 1);
             });
