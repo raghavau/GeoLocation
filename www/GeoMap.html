@@ -115,7 +115,7 @@
             }
             //var watchID = navigator.geolocation.getCurrentPosition(onSuccess, onError, { timeout: 3000, enableHighAccuracy: true });
             //var options = { frequency: 3000, maximumAge: 10000, timeout: 10000, enableHighAccuracy: true };
-            var options = { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true };
+            var options = { maximumAge: 10000, timeout: 12000, enableHighAccuracy: true };
             var watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
 
             function clearWatch() {
