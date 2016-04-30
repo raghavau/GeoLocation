@@ -78,7 +78,7 @@
             var latlong = [];
             function onSuccess(position) {
                 var element = document.getElementById('geolocation');
-                element.innerHTML = 'Latitude: ' + position.coords.latitude + ' Longitude: ' + position.coords.longitude + ' ' + new Date() +'<br />'
+                element.innerHTML = 'Latitude: ' + position.coords.latitude + ' Longitude: ' + position.coords.longitude + ' ' + new Date() + '<br />'
                                             + '<hr />' + element.innerHTML;
                 var lat = position.coords.latitude;
                 var lang = position.coords.longitude;
@@ -112,6 +112,7 @@
             }
             function onError(error) {
                 alert('code: ' + error.code + '\n' + 'message: ' + error.message + '\n');
+                clearWatch();
             }
             //var watchID = navigator.geolocation.getCurrentPosition(onSuccess, onError, { timeout: 3000, enableHighAccuracy: true });
             //var options = { frequency: 3000, maximumAge: 10000, timeout: 10000, enableHighAccuracy: true };
