@@ -3,7 +3,7 @@
     
     <head>
         <title>Cordova Geo Location Plugin Example</title>
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRfjDb6NJrSEhQjLCKr9LdNF6wF45udAA"></script>
         <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
         <script>
@@ -65,11 +65,12 @@
 
             // Watch your changing position
             function watchMapPosition() {
+                //debugger;
                 return navigator.geolocation.watchPosition(onMapWatchSuccess, onMapError, { enableHighAccuracy: true });
             }
         </script>
     </head>
     <body onload="watchMapPosition()">
-        <div id="map" style="height: fill-available; width: fill-available;"></div>
+        <div id="map" style="height: 100%; width: 100%;"></div>
     </body>
 </html>
