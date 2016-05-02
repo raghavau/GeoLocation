@@ -43,7 +43,7 @@
                 map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
                 //var latlong = new google.maps.LatLng(latitude, longitude);
-
+                debugger;
                 var marker = new google.maps.Marker({
                     position: new google.maps.LatLng(latitude, longitude)
                 });
@@ -51,7 +51,7 @@
                 marker.setMap(map);
                 map.setZoom(17);
                 map.setCenter(marker.getPosition());
-
+                
                 var tourplan1 = new google.maps.Polyline({
                     path: latlong,
                     strokeColor: "#0000FF",
@@ -87,6 +87,6 @@
         </script>
     </head>
     <body onload="watchMapPosition()">
-        <div id="map" style="height: 300px; width: 100%;"></div>
+        <div id="map" style="height: 100%; width: 100%; position: absolute;"></div>
     </body>
 </html>
