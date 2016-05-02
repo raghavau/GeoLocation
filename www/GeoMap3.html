@@ -38,13 +38,13 @@
                     center: new google.maps.LatLng(0, 0),
                     zoom: 1,
                     mapTypeId: google.maps.MapTypeId.ROADMAP,
-                    panControl: true,
+                    panControl: false,
                     zoomControl: true,
-                    scaleControl: true,
-                    mapTypeControl: true,
-                    streetViewControl: true,
-                    overviewMapControl: true,
-                    rotateControl: true
+                    scaleControl: false,
+                    mapTypeControl: false,
+                    streetViewControl: false,
+                    overviewMapControl: false,
+                    rotateControl: false
                 };
 
                 map = new google.maps.Map(document.getElementById("map"), mapOptions);
