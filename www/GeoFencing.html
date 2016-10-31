@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Geo Fencing</title>
+        <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height"/>
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+        <style type="text/css">
+            body{
+                margin: 0;
+                top: 0;
+                left: 0;
+                position: absolute;
+                width: 100%;
+                font-family: 'Source Sans Pro';
+            }
+        </style>
+    </head>
+    <body onload="loadMap();">
+        <div class="container text-center">
+            <div class="page-header">
+                <h3>Geo Location</h3>
+            </div>
+            <div id = "googleMap" style = "width:100%; height:400px;"></div>
+        </div>
+    </body>
+</html>
+<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+<script type="text/javascript" src = "https://maps.googleapis.com/maps/api/js"></script>
+<script type="text/javascript">
+function loadMap(){
+    var mapProp = {
+        center:new google.maps.LatLng(14.262035, 80.120776),
+        zoom:15,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+    var myTrip1 = [
+        new google.maps.LatLng(14.260341, 80.117335),
+        new google.maps.LatLng(14.261664, 80.117748),
+        new google.maps.LatLng(14.260888, 80.120381),
+        new google.maps.LatLng(14.259569, 80.119991)
+    ];
+
+    var flightPath1 = new google.maps.Polygon({
+        path: myTrip1,
+        strokeColor: "#428bca",
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: "#428bca",
+        fillOpacity: 0.4
+    });
+
+    flightPath1.setMap(map);
+
+    var myTrip2 = [
+        new google.maps.LatLng(14.262043, 80.120763),
+        new google.maps.LatLng(14.260888, 80.120381),
+        new google.maps.LatLng(14.261664, 80.117748),
+        new google.maps.LatLng(14.262827, 80.118131)
+    ];
+
+    var flightPath2 = new google.maps.Polygon({
+        path: myTrip2,
+        strokeColor: "#5cb85c",
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: "#5cb85c",
+        fillOpacity: 0.4
+    });
+
+    flightPath2.setMap(map);
+
+    var myTrip3 = [
+        new google.maps.LatLng(14.262043, 80.120763),
+        new google.maps.LatLng(14.264128, 80.121440),
+        new google.maps.LatLng(14.264920, 80.118804),
+        new google.maps.LatLng(14.262827, 80.118131)
+    ];
+
+    var flightPath3 = new google.maps.Polygon({
+        path: myTrip3,
+        strokeColor: "#5bc0de",
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: "#5bc0de",
+        fillOpacity: 0.4
+    });
+
+    flightPath3.setMap(map);
+
+    var myTrip4 = [
+        new google.maps.LatLng(14.262043, 80.120763),
+        new google.maps.LatLng(14.264128, 80.121440),
+        new google.maps.LatLng(14.262830, 80.125745),
+        new google.maps.LatLng(14.260991, 80.125153),
+        new google.maps.LatLng(14.260815, 80.124992)
+    ];
+
+    var flightPath4 = new google.maps.Polygon({
+        path: myTrip4,
+        strokeColor: "#ffa700",
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: "#ffa700",
+        fillOpacity: 0.4
+    });
+
+    flightPath4.setMap(map);
+
+    var myTrip5 = [
+        new google.maps.LatLng(14.260815, 80.124992),
+        new google.maps.LatLng(14.259972, 80.127761),
+        new google.maps.LatLng(14.260495, 80.127741),
+        new google.maps.LatLng(14.261816, 80.127793),
+        new google.maps.LatLng(14.263041, 80.125887),
+        new google.maps.LatLng(14.263006, 80.125824),
+        new google.maps.LatLng(14.260991, 80.125153)
+    ];
+
+    var flightPath5 = new google.maps.Polygon({
+        path: myTrip5,
+        strokeColor: "#d9534f",
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: "#d9534f",
+        fillOpacity: 0.4
+    });
+
+    flightPath5.setMap(map);
+
+    var myTrip6 = [
+        new google.maps.LatLng(14.259569, 80.119991),
+        new google.maps.LatLng(14.262043, 80.120763),
+        new google.maps.LatLng(14.260070, 80.127411),
+        new google.maps.LatLng(14.259549, 80.127151),
+        new google.maps.LatLng(14.257728, 80.126670)
+    ];
+
+    var flightPath6 = new google.maps.Polygon({
+        path: myTrip6,
+        strokeColor: "#5A5FBE",
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: "#5A5FBE",
+        fillOpacity: 0.4
+    });
+
+    flightPath6.setMap(map);
+
+    var myTrip7 = [
+        new google.maps.LatLng(14.260341, 80.117335),
+        new google.maps.LatLng(14.258517, 80.116667),
+        new google.maps.LatLng(14.256901, 80.121981),
+        new google.maps.LatLng(14.256832, 80.122117),
+        new google.maps.LatLng(14.256795, 80.122341),
+        new google.maps.LatLng(14.258742, 80.122979)
+    ];
+
+    var flightPath7 = new google.maps.Polygon({
+        path: myTrip7,
+        strokeColor: "#725249",
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: "#725249",
+        fillOpacity: 0.4
+    });
+
+    flightPath7.setMap(map);
+
+    var myTrip8 = [
+        new google.maps.LatLng(14.257728, 80.126670),
+        new google.maps.LatLng(14.259549, 80.127151),
+        new google.maps.LatLng(14.260070, 80.127411),
+        new google.maps.LatLng(14.259436, 80.129520),
+        new google.maps.LatLng(14.258672, 80.129586),
+        new google.maps.LatLng(14.257947, 80.129595),
+        new google.maps.LatLng(14.257029, 80.129604)
+    ];
+
+    var flightPath8 = new google.maps.Polygon({
+        path: myTrip8,
+        strokeColor: "#2f4461",
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: "#2f4461",
+        fillOpacity: 0.4
+    });
+
+    flightPath8.setMap(map);
+
+    var myTrip9 = [
+        new google.maps.LatLng(14.258517, 80.116667),
+        new google.maps.LatLng(14.260341, 80.117335),
+        new google.maps.LatLng(14.261498, 80.114941),
+        new google.maps.LatLng(14.259243, 80.114214)
+    ];
+
+    var flightPath9 = new google.maps.Polygon({
+        path: myTrip9,
+        strokeColor: "#00d0c7",
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: "#00d0c7",
+        fillOpacity: 0.4
+    });
+
+    flightPath9.setMap(map);
+
+    var myTrip10 = [
+        new google.maps.LatLng(14.255523, 80.111726),
+        new google.maps.LatLng(14.259010, 80.112945),
+        new google.maps.LatLng(14.259094, 80.113012),
+        new google.maps.LatLng(14.259104, 80.113157),
+        new google.maps.LatLng(14.258405, 80.114163),
+        new google.maps.LatLng(14.258017, 80.115396),
+        new google.maps.LatLng(14.257989, 80.115643),
+        new google.maps.LatLng(14.257740, 80.116220),
+        new google.maps.LatLng(14.257467, 80.116952),
+        new google.maps.LatLng(14.257230, 80.117257),
+        new google.maps.LatLng(14.256969, 80.117498),
+        new google.maps.LatLng(14.256700, 80.117664),
+        new google.maps.LatLng(14.256429, 80.117791),
+        new google.maps.LatLng(14.256114, 80.117893),
+        new google.maps.LatLng(14.255795, 80.117915),
+        new google.maps.LatLng(14.255435, 80.117892),
+        new google.maps.LatLng(14.255096, 80.117829),
+        new google.maps.LatLng(14.254633, 80.117696),
+        new google.maps.LatLng(14.254393, 80.117605),
+        new google.maps.LatLng(14.253808, 80.117419),
+        new google.maps.LatLng(14.253739, 80.117329)
+    ];
+
+    var flightPath10 = new google.maps.Polygon({
+        path: myTrip10,
+        strokeColor: "#942d24",
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: "#942d24",
+        fillOpacity: 0.4
+    });
+
+    flightPath10.setMap(map);
+
+    var myTrip11 = [
+        new google.maps.LatLng(14.267502, 80.121665),
+        new google.maps.LatLng(14.268008, 80.121997),
+        new google.maps.LatLng(14.268514, 80.122275),
+        new google.maps.LatLng(14.269306, 80.122617),
+        new google.maps.LatLng(14.269378, 80.122686),
+        new google.maps.LatLng(14.269420, 80.122852),
+        new google.maps.LatLng(14.269435, 80.125435),
+        new google.maps.LatLng(14.265064, 80.125495),
+        new google.maps.LatLng(14.267444, 80.121691)
+    ];
+
+    var flightPath11 = new google.maps.Polygon({
+        path: myTrip11,
+        strokeColor: "#ab8547",
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: "#ab8547",
+        fillOpacity: 0.4
+    });
+
+    flightPath11.setMap(map);
+
+    var myTrip12 = [
+        new google.maps.LatLng(14.265064, 80.125495),
+        new google.maps.LatLng(14.264390, 80.126559),
+        new google.maps.LatLng(14.263983, 80.127114),
+        new google.maps.LatLng(14.263852, 80.127369),
+        new google.maps.LatLng(14.267019, 80.127339),
+        new google.maps.LatLng(14.267409, 80.127245),
+        new google.maps.LatLng(14.267800, 80.127211),
+        new google.maps.LatLng(14.268150, 80.127220),
+        new google.maps.LatLng(14.268330, 80.127250),
+        new google.maps.LatLng(14.268822, 80.127424),
+        new google.maps.LatLng(14.269425, 80.127412),
+        new google.maps.LatLng(14.269435, 80.125435)
+    ];
+
+    var flightPath12 = new google.maps.Polygon({
+        path: myTrip12,
+        strokeColor: "#2C373C",
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: "#2C373C",
+        fillOpacity: 0.4
+    });
+
+    flightPath12.setMap(map);
+
+    var myTrip13 = [
+        new google.maps.LatLng(14.269435, 80.125435),
+        new google.maps.LatLng(14.269425, 80.127412),
+        new google.maps.LatLng(14.271032, 80.127410),
+        new google.maps.LatLng(14.270966, 80.125424)
+    ];
+
+    var flightPath13 = new google.maps.Polygon({
+        path: myTrip13,
+        strokeColor: "#af0076",
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: "#af0076",
+        fillOpacity: 0.4
+    });
+
+    flightPath13.setMap(map);
+
+    var infowindow13 = new google.maps.InfoWindow({
+       content:"Zone - 13, Krishnapatnam Port"
+    });
+
+    infowindow13.open(map, flightPath13);
+}
+</script>
