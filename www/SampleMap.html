@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>KPCL Sample Google Map</title>
-    <script src="http://maps.googleapis.com/maps/api/js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAvCB0fJALK-4VaEiubgiVYuh-pJxNGvH0"></script>
     <script>
         function loadMap() {
 
@@ -127,10 +127,87 @@
             tourplan2.setMap(map);
             //to remove plylines
             //tourplan.setmap(null);
+
+            var triangleCoords = [
+                new google.maps.LatLng(14.269435, 80.125435),
+                new google.maps.LatLng(14.269425, 80.127412),
+                new google.maps.LatLng(14.271032, 80.127410),
+                new google.maps.LatLng(14.270966, 80.125424),
+                new google.maps.LatLng(14.269435, 80.125435)
+            ];
+
+            var flightPath13 = new google.maps.Polyline({
+                path: triangleCoords,
+                strokeColor: "#af0076",
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+                //fillColor: "#af0076",
+                //fillOpacity: 0.1,
+                position: new google.maps.LatLng(14.269425, 80.127412)
+            });
+            flightPath13.setMap(map);
+
+            var bermudaTriangle = new google.maps.Polygon({paths: triangleCoords});
+
+            google.maps.event.addListener(map, "click", function (event) {
+                //console.log( latitude + ', ' + longitude );
+                var latitude = event.latLng.lat();
+                var longitude = event.latLng.lng();
+                var resultColor = google.maps.geometry.poly.containsLocation(event.latLng, bermudaTriangle) ? 'green' : 'red';
+                var msg = resultColor == 'green' ? msg = '<b>In location</b> <br><br>' : msg = '<b>Out location</b> <br><br>';
+                msg = msg + 'Lat: ' + latitude + '<br> Lng: ' + longitude;
+
+                new google.maps.Marker({
+                    position: event.latLng,
+                    map: map,
+                    icon: {
+                        path: google.maps.SymbolPath.CIRCLE,
+                        fillColor: resultColor,
+                        fillOpacity: .2,
+                        strokeColor: 'white',
+                        strokeWeight: .5,
+                        scale: 10
+                    }
+                });
+
+                /*radius = new google.maps.Circle({map: map,
+                    radius: 100,
+                    center: event.latLng,
+                    fillColor: '#887078',
+                    fillOpacity: 0.4,
+                    strokeColor: '#AA0000',
+                    strokeOpacity: 0.8,
+                    strokeWeight: 2,
+                    draggable: true,    // Dragable
+                    editable: true      // Resizable
+                });*/
+
+
+                var infowindow = new google.maps.InfoWindow({
+                    content: msg,
+                    position: new google.maps.LatLng(latitude, longitude),
+                    icon: {
+                        path: google.maps.SymbolPath.CIRCLE,
+                        scale: 5,
+                        strokeWeight: 2,
+                        strokeColor: "#FF00FF",
+                        strokeOpacity: 0.8,
+
+                        fillColor: "#FF00FF",
+                        fillOpacity: 0.4
+                    },
+                    draggable: true
+                });
+
+                infowindow.open(map);
+
+                // Center of map
+                //map.panTo(new google.maps.LatLng(latitude, longitude));
+            });
         }
     </script>
 </head>
 <body onload="loadMap()">
-    <div id="googleMap" style="width:80%; height:98%; position: absolute;"></div>
+    <div id="googleMap" style="width:98%; height:98%; position: absolute;"></div>
 </body>
 </html>
