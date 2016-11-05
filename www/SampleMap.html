@@ -149,6 +149,7 @@
 
             var bermudaTriangle = new google.maps.Polygon({paths: triangleCoords});
             var infowindow = new google.maps.InfoWindow();
+            var markers = [];
 
             google.maps.event.addListener(map, "click", function (event) {
                 //console.log( latitude + ', ' + longitude );
@@ -158,9 +159,14 @@
                 var msg = resultColor == 'green' ? msg = '<b>In location</b> <br><br>' : msg = '<b>Out location</b> <br><br>';
                 msg = msg + 'Lat: ' + latitude + '<br> Lng: ' + longitude;
 
-                new google.maps.Marker({
+                if(markers.length > 0)
+                {
+                    markers[0].setMap(null);
+                    markers = [];
+                }
+
+                var marker = new google.maps.Marker({
                     position: event.latLng,
-                    map: map,
                     icon: {
                         path: google.maps.SymbolPath.CIRCLE,
                         fillColor: resultColor,
@@ -170,6 +176,8 @@
                         scale: 10
                     }
                 });
+                markers.push(marker);
+                markers[0].setMap(map);
 
                 /*radius = new google.maps.Circle({map: map,
                     radius: 100,
