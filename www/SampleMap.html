@@ -148,6 +148,7 @@
             flightPath13.setMap(map);
 
             var bermudaTriangle = new google.maps.Polygon({paths: triangleCoords});
+            var infowindow = new google.maps.InfoWindow();
 
             google.maps.event.addListener(map, "click", function (event) {
                 //console.log( latitude + ', ' + longitude );
@@ -182,8 +183,8 @@
                     editable: true      // Resizable
                 });*/
 
-
-                var infowindow = new google.maps.InfoWindow({
+                infowindow.close();
+                infowindow = new google.maps.InfoWindow({
                     content: msg,
                     position: new google.maps.LatLng(latitude, longitude),
                     icon: {
